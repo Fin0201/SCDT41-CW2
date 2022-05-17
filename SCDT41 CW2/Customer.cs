@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    internal class Tenant
+    internal class Customer
     {
         public Guid Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
 
-        public Tenant(string fname, string lname)
+        public Customer(string fname, string lname)
         {
             Id = Guid.NewGuid();
             Fname = fname;
