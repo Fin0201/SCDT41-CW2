@@ -6,17 +6,10 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    internal class Tenant
+    public interface IPerson
     {
         public Guid Id { get; set; }
         public string Fname { get; set; }
-        public string Lname { get; set; }
-
-        public Tenant(string fname, string lname)
-        {
-            Id = Guid.NewGuid();
-            Fname = fname;
-            Lname = lname;
-        }
+        public string Sname { get; set; }
     }
 }

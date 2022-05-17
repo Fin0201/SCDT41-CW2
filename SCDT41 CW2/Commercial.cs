@@ -26,7 +26,7 @@ namespace SCDT41_CW2
 
         public override string ToString()
         {
-            return $"Address: {Address} Business Name: {NameOfBusiness} Type: {PropertyType} Size: {SizeInMeters}";
+            return $"Address: {Address}, Business Name: {NameOfBusiness}, Type: {PropertyType}, Size: {SizeInMeters}";
         }
     }
 }

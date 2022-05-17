@@ -23,7 +23,14 @@ namespace SCDT41_CW2
             FLAT,
             BUNGALOW,
             COTTAGE
-
+        }
+        public enum EmployeeType
+        {
+            ADMIN,
+            MANAGER,
+            CLEANER,
+            MAINTENANCE,
+            TEAM_MEMBER
         }
     }
 }

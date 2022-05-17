@@ -14,7 +14,7 @@ namespace SCDT41_CW2
         public DomesticProperty PropertyType { get; set; }
         public int NumberOfBedrooms { get; set; }
 
-        public Domestic(Guid id, string address, DomesticProperty propertyType, int numberOfBedrooms)
+        public Domestic(string address, DomesticProperty propertyType, int numberOfBedrooms)
         {
             Id = Guid.NewGuid();
             Address = address;
@@ -24,7 +24,7 @@ namespace SCDT41_CW2
 
         public override string ToString()
         {
-            return $"Address: {Address} Type: {PropertyType} Number of bedrooms: {NumberOfBedrooms}";
+            return $"Address: {Address}, Type: {PropertyType}, Number of Bedrooms: {NumberOfBedrooms}";
         }
     }
 }
