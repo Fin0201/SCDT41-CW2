@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCDT41 CW2", "SCDT41 CW2\SCDT41 CW2.csproj", "{0DFC15E7-0936-4683-803D-E5F4DC7F74DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCDT41 CW2", "SCDT41 CW2\SCDT41 CW2.csproj", "{0DFC15E7-0936-4683-803D-E5F4DC7F74DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{CE68B8BF-C5B6-47EF-AF35-841B711CBD12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0DFC15E7-0936-4683-803D-E5F4DC7F74DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DFC15E7-0936-4683-803D-E5F4DC7F74DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DFC15E7-0936-4683-803D-E5F4DC7F74DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE68B8BF-C5B6-47EF-AF35-841B711CBD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE68B8BF-C5B6-47EF-AF35-841B711CBD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE68B8BF-C5B6-47EF-AF35-841B711CBD12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE68B8BF-C5B6-47EF-AF35-841B711CBD12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

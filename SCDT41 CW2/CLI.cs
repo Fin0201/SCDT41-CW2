@@ -8,5 +8,9 @@ namespace SCDT41_CW2
 {
     internal class CLI
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
     }
 }
