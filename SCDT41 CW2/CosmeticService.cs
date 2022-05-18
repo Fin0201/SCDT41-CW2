@@ -6,10 +6,28 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    internal class CosmeticService
+    public class CosmeticService : IService
     {
         public Guid Id { get; set; }
-        public string ServiceDescription { get; set; }
-        public DateTime DateBooked { get; set; }
+        public string Description { get; set; }
+        public DateTime Timestamp { get; set; }
+        public bool IsOpen { get; set; }
+        public List<Purchase> PurchaseList { get; set; }
+        public List<TimeLog> TimeLogList { get; set; }
+
+        public CosmeticService(string description)
+        {
+            Id = Guid.NewGuid();
+            Description = description;
+            Timestamp = DateTime.Now;
+            IsOpen = true;
+            PurchaseList = new List<Purchase>();
+            TimeLogList = new List<TimeLog>();
+        }
+
+        public override string ToString()
+        {
+            return $"Description: {Description} Created On: {Timestamp}";
+        }
     }
 }

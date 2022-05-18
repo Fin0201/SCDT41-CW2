@@ -11,8 +11,8 @@ namespace SCDT41_CW2
         public Guid Id { get; set; }
         public string Description { get; set; }
         public DateTime Timestamp { get; set; }
-        public bool Open { get; set; }
-        public TeamMember Employee { get; set; }
+        public bool IsOpen { get; set; }
+        public List<Purchase> PurchaseList{ get; set; }
         public List<TimeLog> TimeLogList { get; set; }
     }
 }

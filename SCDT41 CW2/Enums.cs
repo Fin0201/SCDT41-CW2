@@ -32,5 +32,11 @@ namespace SCDT41_CW2
             MAINTENANCE,
             TEAM_MEMBER
         }
+        public enum SeverityPriority
+        {
+            LOW,
+            MEDIUM,
+            HIGH
+        }
     }
 }

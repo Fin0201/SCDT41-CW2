@@ -10,7 +10,7 @@ namespace UnitTests
         {
             Commercial propertyToTest;
 
-            propertyToTest = new Commercial("21 Street Rd", "Fin's Furniture", Enums.CommercialProperty.WAREHOUSE, 1000);
+            propertyToTest = new Commercial("21 Street Rd", "Fin's Furniture", Enums.CommercialProperty.WAREHOUSE, 1000, new Customer("Finley", "Edwards"));
             var testString = propertyToTest.ToString();
 
             Assert.Equal("Address: 21 Street Rd, Business Name: Fin's Furniture, Type: WAREHOUSE, Size: 1000", testString);
@@ -21,7 +21,7 @@ namespace UnitTests
         {
             Domestic propertyToTest;
 
-            propertyToTest = new Domestic("89 Big Road", Enums.DomesticProperty.COTTAGE, 2);
+            propertyToTest = new Domestic("89 Big Road", Enums.DomesticProperty.COTTAGE, 2, new Customer("Finley", "Edwards"));
             var testString = propertyToTest.ToString();
 
             Assert.Equal("Address: 89 Big Road, Type: COTTAGE, Number of Bedrooms: 2", testString);

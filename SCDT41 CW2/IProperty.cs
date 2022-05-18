@@ -10,5 +10,7 @@ namespace SCDT41_CW2
     {
         public Guid Id { get; set; }
         public string Address { get; set; }
+        public Customer CurrentOwner { get; set; }
+        public List<IService> NeededServices { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    internal class Purchase
+    public class Purchase
     {
         public Guid Id { get; set; }
         public string? Description { get; set; }

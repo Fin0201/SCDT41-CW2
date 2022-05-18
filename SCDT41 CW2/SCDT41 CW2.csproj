@@ -9,4 +9,8 @@
     <StartupObject></StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Sharprompt" Version="2.4.1" />
+  </ItemGroup>
+
 </Project>

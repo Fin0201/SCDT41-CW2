@@ -13,13 +13,17 @@ namespace SCDT41_CW2
         public string Address { get; set; }
         public DomesticProperty PropertyType { get; set; }
         public int NumberOfBedrooms { get; set; }
+        public Customer CurrentOwner { get; set; }
+        public List<IService> NeededServices { get; set; }
 
-        public Domestic(string address, DomesticProperty propertyType, int numberOfBedrooms)
+        public Domestic(string address, DomesticProperty propertyType, int numberOfBedrooms, Customer currentOwner)
         {
             Id = Guid.NewGuid();
             Address = address;
             PropertyType = propertyType;
             NumberOfBedrooms = numberOfBedrooms;
+            CurrentOwner = currentOwner;
+            NeededServices = new List<IService>();
         }
 
         public override string ToString()
