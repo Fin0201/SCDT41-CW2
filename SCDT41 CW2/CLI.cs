@@ -22,11 +22,17 @@ namespace SCDT41_CW2
             List<TeamMember> TeamMemberList = new List<TeamMember>();
 
 
+            TeamMember bob = new TeamMember("Bob", "Bobbington", "Bob123", "Password123", EmployeeType.ADMIN);
+            TeamMemberList.Add(bob);
+            Customer mark = new Customer("mark", "spencer");
+            CustomerList.Add(mark);
+
+
 
             Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
             static void Menu(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                var menuSelection = Prompt.Select("Main Menu", new[] { "Add Property", "Edit Property", "Add Customer", "Edit Customer", "Add Service", "Edit Service", "Add Staff", "Edit Staff", "Add Timelog", "View Timelog", "Purchase Materials", "Quit" });
+                var menuSelection = Prompt.Select("Main Menu", new[] { "Add Property", "Edit Property", "Add Customer", "Edit Customer", "Add Service", "Edit Service", "Add Staff", "Edit Staff", "Purchase Materials", "View Purchases", "Add Timelog", "View Timelog", "Quit" });
                 switch (menuSelection)
                 {
                     case ("Add Property"):
@@ -53,14 +59,17 @@ namespace SCDT41_CW2
                     case ("Edit Staff"):
                         EditStaff(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
+                    case ("Purchase Materials"):
+                        PurchaseMaterials(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("View Purchases"):
+                        ViewPurchases(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
                     case ("Add Timelog"):
                         AddTimelog(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
                     case ("View Timelog"):
                         ViewTimelog(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
-                        break;
-                    case ("Purchase Materials"):
-                        PurchaseMaterials(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
                     case ("Quit"):
                         Quit();
@@ -89,8 +98,9 @@ namespace SCDT41_CW2
                     Customer owner = Prompt.Select("Select the customer", CustomerList);
 
 
-                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                    if (correctInfo == true)
+                    string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                    bool checkInfo = ConvertToBool(correctInfo);
+                    if (checkInfo)
                     {
                         Commercial tempCommercial = new Commercial(address, nameOfBusiness, type, sizeInMeters, owner);
                         CommercialList.Add(tempCommercial);
@@ -112,8 +122,9 @@ namespace SCDT41_CW2
                     Customer owner = Prompt.Select("Select the customer", CustomerList);
 
 
-                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                    if (correctInfo == true)
+                    string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                    bool checkInfo = ConvertToBool(correctInfo);
+                    if (checkInfo)
                     {
                         Domestic tempDomestic = new Domestic(address, type, numberOfBedrooms, owner);
                         DomesticList.Add(tempDomestic);
@@ -157,8 +168,9 @@ namespace SCDT41_CW2
                             Customer owner = Prompt.Select("Select the customer", CustomerList);
 
 
-                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                            if (correctInfo == true)
+                            string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                            bool checkInfo = ConvertToBool(correctInfo);
+                            if (checkInfo)
                             {
                                 i.Address = address;
                                 i.NameOfBusiness = nameOfBusiness;
@@ -196,8 +208,9 @@ namespace SCDT41_CW2
                             Customer owner = Prompt.Select("Select the customer", CustomerList);
 
 
-                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                            if (correctInfo == true)
+                            string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                            bool checkInfo = ConvertToBool(correctInfo);
+                            if (checkInfo)
                             {
                                 property.Address = address;
                                 property.PropertyType = type;
@@ -218,8 +231,9 @@ namespace SCDT41_CW2
                     string fname = Prompt.Input<string>("Enter the customer's first name");
                     string lname = Prompt.Input<string>("Enter the customer's last name");
 
-                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                    if (correctInfo == true)
+                    string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                    bool checkInfo = ConvertToBool(correctInfo);
+                    if (checkInfo)
                     {
                         Customer tempCustomer = new Customer(fname, lname);
                         CustomerList.Add(tempCustomer);
@@ -247,8 +261,9 @@ namespace SCDT41_CW2
                         string fname = Prompt.Input<string>("Enter the customer's first name");
                         string lname = Prompt.Input<string>("Enter the customer's last name");
 
-                        bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                        if (correctInfo == true)
+                        string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                        bool checkInfo = ConvertToBool(correctInfo);
+                        if (checkInfo)
                         {
                             customer.Fname = fname;
                             customer.Lname = lname;
@@ -267,8 +282,9 @@ namespace SCDT41_CW2
                 {
                     string description = Prompt.Input<string>("Enter the service descripton");
 
-                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                    if (correctInfo == true)
+                    string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                    bool checkInfo = ConvertToBool(correctInfo);
+                    if (checkInfo)
                     {
                         CosmeticService tempService = new CosmeticService(description);
                         CosmeticList.Add(tempService);
@@ -280,8 +296,9 @@ namespace SCDT41_CW2
                     string description = Prompt.Input<string>("Enter the service descripton");
                     SeverityPriority severityPriority = Prompt.Select<SeverityPriority>("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
 
-                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                    if (correctInfo == true)
+                    string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                    bool checkInfo = ConvertToBool(correctInfo);
+                    if (checkInfo)
                     {
                         ProblemService tempService = new ProblemService(description, severityPriority);
                         ProblemList.Add(tempService);
@@ -311,10 +328,11 @@ namespace SCDT41_CW2
                         if (i == editService)
                         {
                             string description = Prompt.Input<string>("Enter the service description");
-                            
 
-                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                            if (correctInfo == true)
+
+                            string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                            bool checkInfo = ConvertToBool(correctInfo);
+                            if (checkInfo)
                             {
                                 i.Description = description;
                             }
@@ -339,8 +357,9 @@ namespace SCDT41_CW2
                             SeverityPriority severityPriority = Prompt.Select<SeverityPriority>("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
 
 
-                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                            if (correctInfo == true)
+                            string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                            bool checkInfo = ConvertToBool(correctInfo);
+                            if (checkInfo)
                             {
                                 i.Description = description;
                                 i.Severity = severityPriority;
@@ -361,8 +380,10 @@ namespace SCDT41_CW2
                 string password = Prompt.Password("Enter your password");
                 EmployeeType type = Prompt.Select<EmployeeType>("Select your role", new[] { EmployeeType.ADMIN, EmployeeType.MANAGER, EmployeeType.CLEANER, EmployeeType.MAINTENANCE, EmployeeType.TEAM_MEMBER });
 
-                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                if (correctInfo == true)
+
+                string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                bool checkInfo = ConvertToBool(correctInfo);
+                if (checkInfo)
                 {
                     TeamMember tempEmployee = new TeamMember(fname, lname, username, password, type);
                     TeamMemberList.Add(tempEmployee);
@@ -394,8 +415,10 @@ namespace SCDT41_CW2
                         string password = Prompt.Password("Enter your password");
                         EmployeeType type = Prompt.Select<EmployeeType>("Select your role", new[] { EmployeeType.ADMIN, EmployeeType.MANAGER, EmployeeType.CLEANER, EmployeeType.MAINTENANCE, EmployeeType.TEAM_MEMBER });
 
-                        bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                        if (correctInfo == true)
+
+                        string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                        bool checkInfo = ConvertToBool(correctInfo);
+                        if (checkInfo)
                         {
                             i.Fname = fname;
                             i.Lname = lname;
@@ -423,8 +446,9 @@ namespace SCDT41_CW2
                 TeamMember teamMember = Prompt.Select("Select the member of staff", TeamMemberList);
 
 
-                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                if (correctInfo == true)
+                string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                bool checkInfo = ConvertToBool(correctInfo);
+                if (checkInfo)
                 {
                     Timelog tempTimelog = new Timelog(timeInMinutes, teamMember);
                     TimelogList.Add(tempTimelog);
@@ -434,10 +458,11 @@ namespace SCDT41_CW2
 
             static void ViewTimelog(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                foreach (Timelog timelog in TimelogList)
+                foreach (Timelog i in TimelogList)
                 {
-                    Console.WriteLine(timelog);
+                    Console.WriteLine(i);
                 }
+                Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
             }
 
 
@@ -456,8 +481,9 @@ namespace SCDT41_CW2
                 TeamMember tempTeamMember = Prompt.Select("Select the team member to edit", TeamMemberList);
 
 
-                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
-                if (correctInfo == true)
+                string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
+                bool checkInfo = ConvertToBool(correctInfo);
+                if (checkInfo)
                 {
                     Purchase tempPurchase = new Purchase(description, cost, tempTeamMember);
                     PurchaseList.Add(tempPurchase);
@@ -467,10 +493,33 @@ namespace SCDT41_CW2
 
 
 
+            static void ViewPurchases(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                foreach (Purchase i in PurchaseList)
+                {
+                    Console.WriteLine(i);
+                }
+                Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+            }
+
+
+
             static void Quit()
             {
                 Environment.Exit(0);
-                
+            }
+
+
+
+            static bool ConvertToBool(string correctInfo)
+            {
+                switch (correctInfo)
+                {
+                    case ("Yes"):
+                        return true;
+                    default:
+                        return false;
+                }
             }
         }
     }
