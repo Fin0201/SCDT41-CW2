@@ -18,5 +18,10 @@ namespace SCDT41_CW2
             Fname = fname;
             Lname = lname;
         }
+
+        public override string ToString()
+        {
+            return $"{Fname} {Lname}";
+        }
     }
 }

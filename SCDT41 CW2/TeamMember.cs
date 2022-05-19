@@ -11,16 +11,16 @@ namespace SCDT41_CW2
     {
         public Guid Id { get; set; }
         public string Fname { get; set; }
-        public string Sname { get; set; }
+        public string Lname { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public EmployeeType StaffType { get; set; }
 
-        public TeamMember(string fname, string sname, string username, string password)
+        public TeamMember(string fname, string lname, string username, string password, EmployeeType StaffType)
         {
             Id = Guid.NewGuid();
             Fname = fname;
-            Sname = sname;
+            Lname = lname;
             Username = username;
             Password = password;
             StaffType = EmployeeType.CLEANER;
@@ -28,7 +28,7 @@ namespace SCDT41_CW2
 
         public override string? ToString()
         {
-            return $"Name: {Fname} {Sname} Type: {StaffType}";
+            return $"Name: {Fname} {Lname} Type: {StaffType}";
         }
     }
 }

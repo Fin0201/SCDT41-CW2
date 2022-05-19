@@ -12,39 +12,55 @@ namespace SCDT41_CW2
     {
         static void Main(string[] args)
         {
-            List<TimeLog> timelog = new List<TimeLog>();
-            List<Commercial> commercial = new List<Commercial>();
-            List<Domestic> doemstic = new List<Domestic>();
-            List<CosmeticService> cosmeticService = new List<CosmeticService>();
-            List<ProblemService> problemService = new List<ProblemService>();
+            List<Timelog> TimelogList = new List<Timelog>();
+            List<Commercial> CommercialList = new List<Commercial>();
+            List<Domestic> DomesticList = new List<Domestic>();
+            List<CosmeticService> CosmeticList = new List<CosmeticService>();
+            List<ProblemService> ProblemList = new List<ProblemService>();
+            List<Purchase> PurchaseList = new List<Purchase>();
+            List<Customer> CustomerList = new List<Customer>();
+            List<TeamMember> TeamMemberList = new List<TeamMember>();
 
 
-            Menu(timelog);
-            static void Menu(List<TimeLog> timelog)
+
+            Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+            static void Menu(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                Console.Clear();
-                var menuSelection = Prompt.Select("Main Menu", new[] { "Book Service", "Update Service", "View Timelog", "Purchase Materials", "Quit" });
+                var menuSelection = Prompt.Select("Main Menu", new[] { "Add Property", "Edit Property", "Add Customer", "Edit Customer", "Add Service", "Edit Service", "Add Staff", "Edit Staff", "Add Timelog", "View Timelog", "Purchase Materials", "Quit" });
                 switch (menuSelection)
                 {
                     case ("Add Property"):
-                        AddProperty();
-                        Console.Clear();
+                        AddProperty(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
-                    case ("Book Service"):
-                        BookService();
-                        Console.Clear();
+                    case ("Edit Property"):
+                        EditProperty(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
-                    case ("Update Service"):
-                        UpdateService();
-                        Console.Clear();
+                    case ("Add Customer"):
+                        AddCustomer(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Edit Customer"):
+                        EditCustomer(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Add Service"):
+                        AddService(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Edit Service"):
+                        EditService(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Add Staff"):
+                        AddStaff(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Edit Staff"):
+                        EditStaff(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        break;
+                    case ("Add Timelog"):
+                        AddTimelog(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
                     case ("View Timelog"):
-                        ViewTimelog(timelog);
-                        Console.Clear();
+                        ViewTimelog(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
                     case ("Purchase Materials"):
-                        PurchaseMaterials();
-                        Console.Clear();
+                        PurchaseMaterials(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                         break;
                     case ("Quit"):
                         Quit();
@@ -54,92 +70,407 @@ namespace SCDT41_CW2
 
 
 
-            static void AddProperty()
+            static void AddProperty(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                string correctInfo = "Yes";
-
-                while (correctInfo == "Yes")
+                var propertyType = Prompt.Select("Select property type", new[] { "Commercial", "Domestic" });
+                if (propertyType == "Commercial")
                 {
-                    var propertyType = Prompt.Select("Select property type", new[] { "Commercial", "Domestic" });
-                    if (propertyType == "Commercial")
+                    string address = Prompt.Input<string>("Enter the property address");
+                    string nameOfBusiness = Prompt.Input<string>("Enter the name of the business");
+                    CommercialProperty type = Prompt.Select<CommercialProperty>("Select the property type", new[] { CommercialProperty.OFFICE, CommercialProperty.HOTEL, CommercialProperty.WAREHOUSE, CommercialProperty.STORE });
+                    double sizeInMeters = Prompt.Input<double>("Enter the property size in meters");
+
+
+                    string[] customers = { };
+                    foreach (Customer i in CustomerList)
                     {
-                        string address = Prompt.Input<string>("Enter the property address");
-                        string nameOfBusiness = Prompt.Input<string>("Enter the name of the business");
-                        CommercialProperty type = Prompt.Select<CommercialProperty>("Select the property type:", new[] { CommercialProperty.OFFICE, CommercialProperty.HOTEL, CommercialProperty.WAREHOUSE, CommercialProperty.STORE });
-                        double sizeInMeters = Prompt.Input<double>("Enter the property size in meters");
-                        string fname = Prompt.Input<string>("Enter the customers first name");
-                        string lname = Prompt.Input<string>("Enter the customers last name");
-
-                        
+                        customers.ToArray();
                     }
-                    else
+                    Customer owner = Prompt.Select("Select the customer", CustomerList);
+
+
+                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                    if (correctInfo == true)
                     {
+                        Commercial tempCommercial = new Commercial(address, nameOfBusiness, type, sizeInMeters, owner);
+                        CommercialList.Add(tempCommercial);
+                    }
+                    Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                }
+                else
+                {
+                    string address = Prompt.Input<string>("Enter the property address");
+                    DomesticProperty type = Prompt.Select<DomesticProperty>("Select the property type", new[] { DomesticProperty.DETACHED, DomesticProperty.SEMI_DETACHED, DomesticProperty.FLAT, DomesticProperty.BUNGALOW, DomesticProperty.COTTAGE });
+                    int numberOfBedrooms = Prompt.Input<int>("Enter the number of bedrooms");
 
+
+                    string[] customers = { };
+                    foreach (Customer i in CustomerList)
+                    {
+                        customers.ToArray();
+                    }
+                    Customer owner = Prompt.Select("Select the customer", CustomerList);
+
+
+                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                    if (correctInfo == true)
+                    {
+                        Domestic tempDomestic = new Domestic(address, type, numberOfBedrooms, owner);
+                        DomesticList.Add(tempDomestic);
+
+                        Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                    }
+                }
+            }
+
+
+
+            static void EditProperty(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string[] properties = { };
+
+                var propertyType = Prompt.Select("Select property type", new[] { "Commercial", "Domestic" });
+                if (propertyType == "Commercial")
+                {
+                    foreach (Commercial i in CommercialList)
+                    {
+                        properties.ToArray();
                     }
 
-                    correctInfo = Prompt.Select("Are you sure these details correct", new[] { "No", "Yes" });
+
+                    Commercial editProperty = Prompt.Select("Select the property to edit", CommercialList);
+                    foreach (Commercial i in CommercialList)
+                    {
+                        if (i == editProperty)
+                        {
+                            string address = Prompt.Input<string>("Enter the property address");
+                            string nameOfBusiness = Prompt.Input<string>("Enter the name of the business");
+                            CommercialProperty type = Prompt.Select<CommercialProperty>("Select the property type", new[] { CommercialProperty.OFFICE, CommercialProperty.HOTEL, CommercialProperty.WAREHOUSE, CommercialProperty.STORE });
+                            double sizeInMeters = Prompt.Input<double>("Enter the property size in meters");
+
+
+                            string[] customers = { };
+                            foreach (Customer j in CustomerList)
+                            {
+                                customers.ToArray();
+                            }
+                            Customer owner = Prompt.Select("Select the customer", CustomerList);
+
+
+                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                            if (correctInfo == true)
+                            {
+                                i.Address = address;
+                                i.NameOfBusiness = nameOfBusiness;
+                                i.PropertyType = type;
+                                i.SizeInMeters = sizeInMeters;
+                                i.CurrentOwner = owner;
+                            }
+                            Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (Domestic i in DomesticList)
+                    {
+                        properties.ToArray();
+                    }
+
+
+                    Domestic editProperty = Prompt.Select("Select the property to edit", DomesticList);
+                    foreach (Domestic property in DomesticList)
+                    {
+                        if (property == editProperty)
+                        {
+                            string address = Prompt.Input<string>("Enter the property address");
+                            DomesticProperty type = Prompt.Select<DomesticProperty>("Select the property type", new[] { DomesticProperty.DETACHED, DomesticProperty.SEMI_DETACHED, DomesticProperty.FLAT, DomesticProperty.BUNGALOW, DomesticProperty.COTTAGE });
+                            int numberOfBedrooms = Prompt.Input<int>("Enter the number of bedrooms");
+
+
+                            string[] customers = { };
+                            foreach (Customer i in CustomerList)
+                            {
+                                customers.ToArray();
+                            }
+                            Customer owner = Prompt.Select("Select the customer", CustomerList);
+
+
+                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                            if (correctInfo == true)
+                            {
+                                property.Address = address;
+                                property.PropertyType = type;
+                                property.NumberOfBedrooms = numberOfBedrooms;
+                            }
+                            Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        }
+                    }
+                }
+            }
+
+
+
+            static void AddCustomer(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList,List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                while (true)
+                {
+                    string fname = Prompt.Input<string>("Enter the customer's first name");
+                    string lname = Prompt.Input<string>("Enter the customer's last name");
+
+                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                    if (correctInfo == true)
+                    {
+                        Customer tempCustomer = new Customer(fname, lname);
+                        CustomerList.Add(tempCustomer);
+
+                        Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                    }
+                }
+            }
+
+            static void EditCustomer(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string[] customers = { };
+
+                foreach (Customer i in CustomerList)
+                {
+                    customers.ToArray();
                 }
 
-            }
 
-
-            static void BookService()
-            {
-                string correctInfo = "Yes";
-
-                while (correctInfo == "Yes")
+                Customer editCustomer = Prompt.Select("Select the customer to edit", CustomerList);
+                foreach (Customer customer in CustomerList)
                 {
-                    var serviceType = Prompt.Select("Select service type", new[] { "Cosmetic", "Problem" });
-                    if (serviceType == "Cosmetic")
+                    if (customer == editCustomer)
                     {
-                        string description = Prompt.Input<string>("Enter the service descripton");
-                        string isOpen = Prompt.Select<string>("Is the iss")
-                    }
-                    else
-                    {
+                        string fname = Prompt.Input<string>("Enter the customer's first name");
+                        string lname = Prompt.Input<string>("Enter the customer's last name");
 
+                        bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                        if (correctInfo == true)
+                        {
+                            customer.Fname = fname;
+                            customer.Lname = lname;
+                        }
+                        Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                     }
-
-                    correctInfo = Prompt.Select("Are you sure these details correct", new[] { "No", "Yes" });
                 }
-                    
-
-
-
-                
-            }
-            static void UpdateService()
-            {
-
             }
 
 
 
-            static void ViewTimelog(List<TimeLog> timelog)
+            static void AddService(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                Console.WriteLine(timelog);
-            }
-
-
-
-            static void PurchaseMaterials()
-            {
-                string correctInfo = "Yes";
-                while (correctInfo == "Yes")
+                var serviceType = Prompt.Select("Select service type", new[] { "Cosmetic", "Problem" });
+                if (serviceType == "Cosmetic")
                 {
-                    string description = Prompt.Input<string>("Enter the description of the products needed");
-                    double cost = Prompt.Input<double>("Purchase cost");
+                    string description = Prompt.Input<string>("Enter the service descripton");
 
-                    correctInfo = Prompt.Select("Are you sure these details correct", new[] { "No", "Yes" });
+                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                    if (correctInfo == true)
+                    {
+                        CosmeticService tempService = new CosmeticService(description);
+                        CosmeticList.Add(tempService);
+                    }
+                    Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
                 }
-                
+                else
+                {
+                    string description = Prompt.Input<string>("Enter the service descripton");
+                    SeverityPriority severityPriority = Prompt.Select<SeverityPriority>("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
+
+                    bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                    if (correctInfo == true)
+                    {
+                        ProblemService tempService = new ProblemService(description, severityPriority);
+                        ProblemList.Add(tempService);
+                    }
+                    Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                }
+            }
+
+
+
+            static void EditService(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string[] services = { };
+
+                var serviceType = Prompt.Select("Select service type", new[] { "Cosmetic", "Problem" });
+                if (serviceType == "Cosmetic")
+                {
+                    foreach (CosmeticService i in CosmeticList)
+                    {
+                        services.ToArray();
+                    }
+
+
+                    CosmeticService editService = Prompt.Select("Select a service to edit", CosmeticList);
+                    foreach (CosmeticService i in CosmeticList)
+                    {
+                        if (i == editService)
+                        {
+                            string description = Prompt.Input<string>("Enter the service description");
+                            
+
+                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                            if (correctInfo == true)
+                            {
+                                i.Description = description;
+                            }
+                            Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (ProblemService i in ProblemList)
+                    {
+                        services.ToArray();
+                    }
+
+
+                    ProblemService editService = Prompt.Select("Select a service to edit", ProblemList);
+                    foreach (ProblemService i in ProblemList)
+                    {
+                        if (i == editService)
+                        {
+                            string description = Prompt.Input<string>("Enter the service description");
+                            SeverityPriority severityPriority = Prompt.Select<SeverityPriority>("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
+
+
+                            bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                            if (correctInfo == true)
+                            {
+                                i.Description = description;
+                                i.Severity = severityPriority;
+                            }
+                            Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                        }
+                    }
+                }
+            }
+
+
+
+            static void AddStaff(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string fname = Prompt.Input<string>("Enter your first name");
+                string lname = Prompt.Input<string>("Enter your last name");
+                string username = Prompt.Input<string>("Enter your username");
+                string password = Prompt.Password("Enter your password");
+                EmployeeType type = Prompt.Select<EmployeeType>("Select your role", new[] { EmployeeType.ADMIN, EmployeeType.MANAGER, EmployeeType.CLEANER, EmployeeType.MAINTENANCE, EmployeeType.TEAM_MEMBER });
+
+                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                if (correctInfo == true)
+                {
+                    TeamMember tempEmployee = new TeamMember(fname, lname, username, password, type);
+                    TeamMemberList.Add(tempEmployee);
+
+                    Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                }
+            }
+
+
+
+            static void EditStaff(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string[] teamMembers = { };
+
+                foreach (TeamMember i in TeamMemberList)
+                {
+                    teamMembers.ToArray();
+                }
+
+
+                TeamMember editTeamMember = Prompt.Select("Select the team member to edit", TeamMemberList);
+                foreach (TeamMember i in TeamMemberList)
+                {
+                    if (i == editTeamMember)
+                    {
+                        string fname = Prompt.Input<string>("Enter your first name");
+                        string lname = Prompt.Input<string>("Enter your last name");
+                        string username = Prompt.Input<string>("Enter your username");
+                        string password = Prompt.Password("Enter your password");
+                        EmployeeType type = Prompt.Select<EmployeeType>("Select your role", new[] { EmployeeType.ADMIN, EmployeeType.MANAGER, EmployeeType.CLEANER, EmployeeType.MAINTENANCE, EmployeeType.TEAM_MEMBER });
+
+                        bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                        if (correctInfo == true)
+                        {
+                            i.Fname = fname;
+                            i.Lname = lname;
+                            i.Username = username;
+                            i.Password = password;
+                            i.StaffType = type;
+                        }
+                        Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                    }
+                }
+            }
+
+
+
+            static void AddTimelog(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                int timeInMinutes = Prompt.Input<int>("Enter the amount of minutes");
+
+
+                string[] employees = { };
+                foreach (TeamMember i in TeamMemberList)
+                {
+                    employees.ToArray();
+                }
+                TeamMember teamMember = Prompt.Select("Select the member of staff", TeamMemberList);
+
+
+                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                if (correctInfo == true)
+                {
+                    Timelog tempTimelog = new Timelog(timeInMinutes, teamMember);
+                    TimelogList.Add(tempTimelog);
+                }
+            }
+
+
+            static void ViewTimelog(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                foreach (Timelog timelog in TimelogList)
+                {
+                    Console.WriteLine(timelog);
+                }
+            }
+
+
+
+            static void PurchaseMaterials(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            {
+                string description = Prompt.Input<string>("Enter the description of the products needed");
+                double cost = Prompt.Input<double>("Purchase cost");
+
+
+                string[] teamMembers = { };
+                foreach (TeamMember i in TeamMemberList)
+                {
+                    teamMembers.ToArray();
+                }
+                TeamMember tempTeamMember = Prompt.Select("Select the team member to edit", TeamMemberList);
+
+
+                bool correctInfo = Prompt.Select("Are you sure these details are correct", new[] { true, false });
+                if (correctInfo == true)
+                {
+                    Purchase tempPurchase = new Purchase(description, cost, tempTeamMember);
+                    PurchaseList.Add(tempPurchase);
+                    Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
+                }
             }
 
 
 
             static void Quit()
             {
-
+                Environment.Exit(0);
+                
             }
         }
     }

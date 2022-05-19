@@ -13,7 +13,7 @@ namespace SCDT41_CW2
         public DateTime Timestamp { get; set; }
         public bool IsOpen { get; set; }
         public List<Purchase> PurchaseList { get; set; }
-        public List<TimeLog> TimeLogList { get; set; }
+        public List<Timelog> TimeLogList { get; set; }
 
         public CosmeticService(string description)
         {
@@ -22,7 +22,7 @@ namespace SCDT41_CW2
             Timestamp = DateTime.Now;
             IsOpen = true;
             PurchaseList = new List<Purchase>();
-            TimeLogList = new List<TimeLog>();
+            TimeLogList = new List<Timelog>();
         }
 
         public override string ToString()
