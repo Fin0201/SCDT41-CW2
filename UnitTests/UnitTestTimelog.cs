@@ -13,12 +13,12 @@ namespace UnitTests
         [Fact]
         public void timelogTest()
         {
-            TimeLlog timelogTest;
+            Timelog timelogTest;
 
-            timelogTest = new TimeLlog(10, new TeamMember("Jeff", "Jefferson", "Username123", "Password123", Enums.EmployeeType.CLEANER));
+            timelogTest = new Timelog(10, new TeamMember("Jeff", "Jefferson", "Username123", "Password123", Enums.EmployeeType.CLEANER));
             string? timelogString = timelogTest.ToString();
 
-            Assert.IsType<TimeLlog>(timelogTest);
+            Assert.IsType<Timelog>(timelogTest);
             Assert.Equal(timelogString, $"ID: {timelogTest.Id}, Time in Minutes: 10, Name: Jeff Jefferson, Type: ADMIN, Logged On: {DateTime.Now}");
         }
     }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    public class TimeLlog
+    public class Timelog
     {
         public Guid Id { get; set; }
         public int TimeInMinutes { get; set; }
         public DateTime LoggedOn { get; set; }
         public TeamMember? MemberOfTeam { get; set; }
-        public TimeLlog(int amountInMins, TeamMember? memberOfTeam)
+        public Timelog(int amountInMins, TeamMember? memberOfTeam)
         {
             Id = Guid.NewGuid();
             TimeInMinutes = amountInMins;

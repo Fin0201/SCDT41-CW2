@@ -15,7 +15,7 @@ namespace SCDT41_CW2
         public SeverityPriority Severity { get; set; }
         public bool IsOpen { get; set; }
         public List<Purchase> PurchaseList { get; set; }
-        public List<TimeLlog> TimeLogList { get; set; }
+        public List<Timelog> TimeLogList { get; set; }
 
         public ProblemService(string description, SeverityPriority severity)
         {
@@ -25,7 +25,7 @@ namespace SCDT41_CW2
             Severity = severity;
             IsOpen = true;
             PurchaseList = new List<Purchase>();
-            TimeLogList = new List<TimeLlog>();
+            TimeLogList = new List<Timelog>();
         }
 
         public override string? ToString()

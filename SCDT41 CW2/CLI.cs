@@ -12,7 +12,7 @@ namespace SCDT41_CW2
     {
         static void Main(string[] args)
         {
-            List<TimeLlog> TimelogList = new List<TimeLlog>();
+            List<Timelog> TimelogList = new List<Timelog>();
             List<Commercial> CommercialList = new List<Commercial>();
             List<Domestic> DomesticList = new List<Domestic>();
             List<CosmeticService> CosmeticList = new List<CosmeticService>();
@@ -30,7 +30,7 @@ namespace SCDT41_CW2
 
 
             Menu(TimelogList, CommercialList, DomesticList, CustomerList, CosmeticList, ProblemList, PurchaseList, TeamMemberList);
-            static void Menu(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void Menu(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 var menuSelection = Prompt.Select("Main Menu", new[] { "Add Property", "Edit Property", "Add Customer", "Edit Customer", "Add Service", "Edit Service", "Add Staff", "Edit Staff", "Purchase Materials", "View Purchases", "Add Timelog", "View Timelog", "Quit" });
                 switch (menuSelection)
@@ -79,7 +79,7 @@ namespace SCDT41_CW2
 
 
 
-            static void AddProperty(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void AddProperty(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 var propertyType = Prompt.Select("Select property type", new[] { "Commercial", "Domestic" });
                 if (propertyType == "Commercial")
@@ -136,7 +136,7 @@ namespace SCDT41_CW2
 
 
 
-            static void EditProperty(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void EditProperty(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string[] properties = { };
 
@@ -224,7 +224,7 @@ namespace SCDT41_CW2
 
 
 
-            static void AddCustomer(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList,List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void AddCustomer(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList,List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 while (true)
                 {
@@ -243,7 +243,7 @@ namespace SCDT41_CW2
                 }
             }
 
-            static void EditCustomer(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void EditCustomer(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string[] customers = { };
 
@@ -275,7 +275,7 @@ namespace SCDT41_CW2
 
 
 
-            static void AddService(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void AddService(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 var serviceType = Prompt.Select("Select service type", new[] { "Cosmetic", "Problem" });
                 if (serviceType == "Cosmetic")
@@ -309,7 +309,7 @@ namespace SCDT41_CW2
 
 
 
-            static void EditService(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void EditService(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string[] services = { };
 
@@ -372,7 +372,7 @@ namespace SCDT41_CW2
 
 
 
-            static void AddStaff(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void AddStaff(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string fname = Prompt.Input<string>("Enter your first name");
                 string lname = Prompt.Input<string>("Enter your last name");
@@ -394,7 +394,7 @@ namespace SCDT41_CW2
 
 
 
-            static void EditStaff(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void EditStaff(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string[] teamMembers = { };
 
@@ -433,7 +433,7 @@ namespace SCDT41_CW2
 
 
 
-            static void AddTimelog(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void AddTimelog(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 int timeInMinutes = Prompt.Input<int>("Enter the amount of minutes");
 
@@ -450,15 +450,15 @@ namespace SCDT41_CW2
                 bool checkInfo = ConvertToBool(correctInfo);
                 if (checkInfo)
                 {
-                    TimeLlog tempTimelog = new TimeLlog(timeInMinutes, teamMember);
+                    Timelog tempTimelog = new Timelog(timeInMinutes, teamMember);
                     TimelogList.Add(tempTimelog);
                 }
             }
 
 
-            static void ViewTimelog(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void ViewTimelog(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
-                foreach (TimeLlog i in TimelogList)
+                foreach (Timelog i in TimelogList)
                 {
                     Console.WriteLine(i);
                 }
@@ -467,7 +467,7 @@ namespace SCDT41_CW2
 
 
 
-            static void PurchaseMaterials(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void PurchaseMaterials(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 string description = Prompt.Input<string>("Enter the description of the products needed");
                 double cost = Prompt.Input<double>("Purchase cost");
@@ -493,7 +493,7 @@ namespace SCDT41_CW2
 
 
 
-            static void ViewPurchases(List<TimeLlog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
+            static void ViewPurchases(List<Timelog> TimelogList, List<Commercial> CommercialList, List<Domestic> DomesticList, List<Customer> CustomerList, List<CosmeticService> CosmeticList, List<ProblemService> ProblemList, List<Purchase> PurchaseList, List<TeamMember> TeamMemberList)
             {
                 foreach (Purchase i in PurchaseList)
                 {
