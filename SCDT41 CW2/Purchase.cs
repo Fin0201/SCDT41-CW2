@@ -24,7 +24,7 @@ namespace SCDT41_CW2
 
         public override string? ToString()
         {
-            return $"ID: {Id} Desc: {Description} Cost: £{Cost} Created On: {CreatedOn}";
+            return $"ID: {Id}, Desc: {Description}, Cost: £{Cost}, Created On: {CreatedOn}";
         }
     }
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    public class Timelog
+    public class TimeLlog
     {
         public Guid Id { get; set; }
         public int TimeInMinutes { get; set; }
         public DateTime LoggedOn { get; set; }
         public TeamMember? MemberOfTeam { get; set; }
-        public Timelog(int amountInMins, TeamMember? memberOfTeam)
+        public TimeLlog(int amountInMins, TeamMember? memberOfTeam)
         {
             Id = Guid.NewGuid();
             TimeInMinutes = amountInMins;
@@ -22,7 +22,7 @@ namespace SCDT41_CW2
 
         public override string? ToString()
         {
-            return $"ID: {Id}, Amount in minutes: {TimeInMinutes}, Team Member: {MemberOfTeam}, Logged On: {LoggedOn}";
+            return $"ID: {Id}, Time in Minutes: {TimeInMinutes}, {MemberOfTeam}, Logged On: {LoggedOn}";
         }
     }
 }

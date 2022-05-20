@@ -28,7 +28,7 @@ namespace SCDT41_CW2
 
         public override string? ToString()
         {
-            return $"Name: {Fname} {Lname} Type: {StaffType}";
+            return $"Name: {Fname} {Lname}, Type: {StaffType}";
         }
     }
 }

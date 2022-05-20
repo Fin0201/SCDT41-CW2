@@ -13,6 +13,6 @@ namespace SCDT41_CW2
         public DateTime Timestamp { get; set; }
         public bool IsOpen { get; set; }
         public List<Purchase> PurchaseList{ get; set; }
-        public List<Timelog> TimeLogList { get; set; }
+        public List<TimeLlog> TimeLogList { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace SCDT41_CW2
 
         public override string ToString()
         {
-            return $"{Fname} {Lname}";
+            return $"Name: {Fname} {Lname}";
         }
     }
 }

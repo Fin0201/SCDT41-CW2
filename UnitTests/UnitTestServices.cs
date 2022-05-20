@@ -11,27 +11,27 @@ namespace UnitTests
     public class UnitTestServices
     {
         [Fact]
-        public void ProblemServiceToStringTest()
+        public void ProblemServiceTest()
         {
-            ProblemService problemService;
+            ProblemService problemServiceTest;
 
-            problemService = new ProblemService("Fire Damage", Enums.SeverityPriority.HIGH);
-            string? problemServiceString = problemService.ToString();
+            problemServiceTest = new ProblemService("Fire Damage", Enums.SeverityPriority.HIGH);
+            string? problemServiceString = problemServiceTest.ToString();
 
-            Assert.IsType<ProblemService>(problemService);
-            Assert.Equal(problemServiceString, $"Description: Fire Damage Priority: HIGH Created On: {DateTime.Now}");
+            Assert.IsType<ProblemService>(problemServiceTest);
+            Assert.Equal(problemServiceString, $"Description: Fire Damage, Priority: HIGH, Created On: {DateTime.Now}");
         }
 
         [Fact]
         public void CosmeticServiceTest()
         {
-            CosmeticService cosmeticService;
+            CosmeticService cosmeticServiceTest;
 
-            cosmeticService = new CosmeticService("Vacuuming");
-            string? cosmeticServiceString = cosmeticService.ToString();
+            cosmeticServiceTest = new CosmeticService("Vacuuming");
+            string? cosmeticServiceString = cosmeticServiceTest.ToString();
 
-            Assert.IsType<CosmeticService>(cosmeticService);
-            Assert.Equal(cosmeticServiceString, $"Description: Vacuuming Created On: {DateTime.Now}");
+            Assert.IsType<CosmeticService>(cosmeticServiceTest);
+            Assert.Equal(cosmeticServiceString, $"Description: Vacuuming, Created On: {DateTime.Now}");
         }
     }
 }
