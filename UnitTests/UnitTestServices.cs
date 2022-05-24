@@ -13,11 +13,14 @@ namespace UnitTests
         [Fact]
         public void ProblemServiceTest()
         {
+            //Arrange
             ProblemService problemServiceTest;
 
+            //Act
             problemServiceTest = new ProblemService("Fire Damage", Enums.SeverityPriority.HIGH);
             string? problemServiceString = problemServiceTest.ToString();
 
+            //Assert
             Assert.IsType<ProblemService>(problemServiceTest);
             Assert.Equal(problemServiceString, $"Description: Fire Damage, Priority: HIGH, Created On: {DateTime.Now}");
         }
@@ -25,11 +28,14 @@ namespace UnitTests
         [Fact]
         public void CosmeticServiceTest()
         {
+            //Arrange
             CosmeticService cosmeticServiceTest;
 
+            //Act
             cosmeticServiceTest = new CosmeticService("Vacuuming");
             string? cosmeticServiceString = cosmeticServiceTest.ToString();
 
+            //Assert
             Assert.IsType<CosmeticService>(cosmeticServiceTest);
             Assert.Equal(cosmeticServiceString, $"Description: Vacuuming, Created On: {DateTime.Now}");
         }

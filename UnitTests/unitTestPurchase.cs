@@ -13,11 +13,14 @@ namespace UnitTests
         [Fact]
         public void PurchaseTest()
         {
+            //Arrange
             Purchase purchaseTest;
 
+            //Act
             purchaseTest = new Purchase("Vacuum", 9.99, new TeamMember("Jeff", "Jefferson", "Username123", "Password123", Enums.EmployeeType.CLEANER));
             string? purchaseString = purchaseTest.ToString();
 
+            //Assert
             Assert.IsType<Purchase>(purchaseTest);
             Assert.Equal(purchaseString, $"ID: {purchaseTest.Id}, Desc: Vacuum, Cost: £9.99, Created On: {DateTime.Now}");
         }
