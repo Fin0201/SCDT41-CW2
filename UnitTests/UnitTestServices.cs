@@ -17,12 +17,12 @@ namespace UnitTests
             ProblemService problemServiceTest;
 
             //Act
-            problemServiceTest = new ProblemService("Fire Damage", Enums.SeverityPriority.HIGH);
+            problemServiceTest = new ProblemService("Fire Damage", Enums.SeverityPriority.HIGH, true);
             string? problemServiceString = problemServiceTest.ToString();
 
             //Assert
             Assert.IsType<ProblemService>(problemServiceTest);
-            Assert.Equal(problemServiceString, $"Description: Fire Damage, Priority: HIGH, Created On: {DateTime.Now}");
+            Assert.Equal(problemServiceString, $"Description: Fire Damage, Priority: HIGH, Is Open: True, Created On: {DateTime.Now}");
         }
 
         [Fact]
@@ -32,12 +32,12 @@ namespace UnitTests
             CosmeticService cosmeticServiceTest;
 
             //Act
-            cosmeticServiceTest = new CosmeticService("Vacuuming");
+            cosmeticServiceTest = new CosmeticService("Vacuuming", false);
             string? cosmeticServiceString = cosmeticServiceTest.ToString();
 
             //Assert
             Assert.IsType<CosmeticService>(cosmeticServiceTest);
-            Assert.Equal(cosmeticServiceString, $"Description: Vacuuming, Created On: {DateTime.Now}");
+            Assert.Equal(cosmeticServiceString, $"Description: Vacuuming, Is Open: False, Created On: {DateTime.Now}");
         }
     }
 }

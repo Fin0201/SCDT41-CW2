@@ -294,32 +294,35 @@ namespace SCDT41_CW2
                 if (serviceType == "Cosmetic")
                 {
                     string description = Prompt.Input<string>("Enter the service descripton");
+                    string serviceState = Prompt.Select("Enter the service state", new[] { "Open", "Closed" });
+                    bool isOpen = ConvertToBool(serviceState);
 
 
                     string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
                     bool checkInfo = ConvertToBool(correctInfo);
                     if (checkInfo)
                     {
-                        CosmeticService tempService = new CosmeticService(description);
+                        CosmeticService tempService = new CosmeticService(description, isOpen);
                         cosmeticList.Add(tempService);
                     }
-                    Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                 }
                 else
                 {
                     string description = Prompt.Input<string>("Enter the service descripton");
                     SeverityPriority severityPriority = Prompt.Select("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
+                    string serviceState = Prompt.Select("Enter the service state", new[] { "Open", "Closed" });
+                    bool isOpen = ConvertToBool(serviceState);
 
 
                     string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
                     bool checkInfo = ConvertToBool(correctInfo);
                     if (checkInfo)
                     {
-                        ProblemService tempService = new ProblemService(description, severityPriority);
+                        ProblemService tempService = new ProblemService(description, severityPriority, isOpen);
                         problemList.Add(tempService);
                     }
-                    Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
@@ -350,6 +353,8 @@ namespace SCDT41_CW2
                         if (i == editService)
                         {
                             string description = Prompt.Input<string>("Enter the service description");
+                            string serviceState = Prompt.Select("Enter the service state", new[] { "Open", "Closed" });
+                            bool isOpen = ConvertToBool(serviceState);
 
 
                             string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
@@ -357,6 +362,7 @@ namespace SCDT41_CW2
                             if (checkInfo)
                             {
                                 i.Description = description;
+                                i.IsOpen = isOpen;
                             }
                             Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                         }
@@ -385,6 +391,9 @@ namespace SCDT41_CW2
                         {
                             string description = Prompt.Input<string>("Enter the service description");
                             SeverityPriority severityPriority = Prompt.Select("Select the severity of the issue", new[] { SeverityPriority.LOW, SeverityPriority.MEDIUM, SeverityPriority.HIGH });
+                            string serviceState = Prompt.Select("Enter the service state", new[] { "Open", "Closed" });
+                            bool isOpen = ConvertToBool(serviceState);
+
 
 
                             string correctInfo = Prompt.Select("Are you sure these details are correct", new[] { "Yes", "No" });
@@ -393,6 +402,7 @@ namespace SCDT41_CW2
                             {
                                 i.Description = description;
                                 i.Severity = severityPriority;
+                                i.IsOpen = isOpen;
                             }
                             Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                         }
@@ -577,14 +587,15 @@ namespace SCDT41_CW2
 
 
 
-            static bool ConvertToBool(string correctInfo)
+            static bool ConvertToBool(string boolConvert)
             {
-                switch (correctInfo)
+                if (boolConvert == "Yes" || boolConvert == "Open")
                 {
-                    case ("Yes"):
-                        return true;
-                    default:
-                        return false;
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

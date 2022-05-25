@@ -17,20 +17,20 @@ namespace SCDT41_CW2
         public List<Purchase> PurchaseList { get; set; }
         public List<Timelog> TimeLogList { get; set; }
 
-        public ProblemService(string description, SeverityPriority severity)
+        public ProblemService(string description, SeverityPriority severity, bool isOpen)
         {
             Id = Guid.NewGuid();
             Description = description;
             Timestamp = DateTime.Now;
             Severity = severity;
-            IsOpen = true;
+            IsOpen = isOpen;
             PurchaseList = new List<Purchase>();
             TimeLogList = new List<Timelog>();
         }
 
         public override string? ToString()
         {
-            return $"Description: {Description}, Priority: {Severity}, Created On: {Timestamp}";
+            return $"Description: {Description}, Priority: {Severity}, Is Open: {IsOpen}, Created On: {Timestamp}";
         }
     }
 }
