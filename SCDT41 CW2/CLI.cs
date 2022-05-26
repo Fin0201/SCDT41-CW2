@@ -221,9 +221,9 @@ namespace SCDT41_CW2
                                 i.NumberOfBedrooms = numberOfBedrooms;
                             }
                         }
-                        Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                     }
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
@@ -385,7 +385,6 @@ namespace SCDT41_CW2
                                 i.Description = description;
                                 i.IsOpen = isOpen;
                             }
-                            Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                         }
                     }
                 }
@@ -426,10 +425,10 @@ namespace SCDT41_CW2
                                 i.Severity = severityPriority;
                                 i.IsOpen = isOpen;
                             }
-                            Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                         }
                     }
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
