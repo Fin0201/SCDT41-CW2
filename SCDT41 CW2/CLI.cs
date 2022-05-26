@@ -289,9 +289,9 @@ namespace SCDT41_CW2
                             customer.Fname = fname;
                             customer.Lname = lname;
                         }
-                        Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                     }
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
@@ -503,9 +503,9 @@ namespace SCDT41_CW2
                             i.Password = password;
                             i.StaffType = type;
                         }
-                        Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
                     }
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
@@ -590,6 +590,7 @@ namespace SCDT41_CW2
                     Timelog tempTimelog = new Timelog(timeInMinutes, teamMember); //Adds the new info
                     timelogList.Add(tempTimelog);
                 }
+                Menu(timelogList, commercialList, domesticList, customerList, cosmeticList, problemList, purchaseList, teamMemberList);
             }
 
 
