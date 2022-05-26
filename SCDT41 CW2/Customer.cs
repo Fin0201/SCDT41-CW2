@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SCDT41_CW2
 {
-    public class Customer
+    public class Customer : IPerson
     {
         public Guid Id { get; set; }
         public string Fname { get; set; }
